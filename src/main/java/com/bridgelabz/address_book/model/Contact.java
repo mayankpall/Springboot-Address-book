@@ -6,10 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
+
 public class Contact {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
     private String name;
@@ -18,10 +17,11 @@ public class Contact {
 
     public Contact(){};
 
-    public Contact(String name, String email, String phone) {
+    public Contact(Long id ,String name, String email, String phone) {
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.id = id;
     }
 
     public Long getId() {
