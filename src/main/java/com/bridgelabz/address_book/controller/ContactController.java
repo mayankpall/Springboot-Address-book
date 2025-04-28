@@ -1,5 +1,6 @@
 package com.bridgelabz.address_book.controller;
 
+import com.bridgelabz.address_book.dto.ContactDTO;
 import com.bridgelabz.address_book.model.Contact;
 import com.bridgelabz.address_book.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,26 +18,26 @@ public class ContactController {
     private ContactService service;
 
     @GetMapping
-    public ResponseEntity<List<Contact>> getAllContacts() {
+    public ResponseEntity<List<ContactDTO>> getAllContacts() {
         return ResponseEntity.ok(service.getAllContacts());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Contact> getContactById(@PathVariable Long id){
-        Optional <Contact> contactID = service.getContactById(id);
+    public ResponseEntity<ContactDTO> getContactById(@PathVariable Long id){
+        Optional <ContactDTO> contactID = service.getContactById(id);
         return contactID.map(ResponseEntity::ok) .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<Contact> createContact(@RequestBody Contact contact){
-      Contact con =  service.createContact(contact);
+    public ResponseEntity<ContactDTO> createContact(@RequestBody ContactDTO contact){
+        ContactDTO con =  service.createContact(contact);
       return ResponseEntity.ok(con);
     }
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<Contact> updateContact(@PathVariable Long id, @RequestBody Contact updatedContact) {
-        Optional<Contact> updated = service.updateContact(id, updatedContact);
+    public ResponseEntity<ContactDTO> updateContact(@PathVariable Long id, @RequestBody ContactDTO updatedContact) {
+        Optional<ContactDTO> updated = service.updateContact(id, updatedContact);
         return updated.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
