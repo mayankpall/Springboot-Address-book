@@ -3,6 +3,7 @@ package com.bridgelabz.address_book.service;
 import com.bridgelabz.address_book.dto.ContactDTO;
 import com.bridgelabz.address_book.model.Contact;
 //import com.bridgelabz.address_book.repository.ContactRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class ContactService {
 
@@ -20,6 +22,7 @@ public class ContactService {
     private final AtomicLong  counter = new AtomicLong();
 
     public List<ContactDTO> getAllContacts(){
+        log.info("Retrieving all contacts. Total count: {}", contactRepository.size());
         return contactRepository.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
 

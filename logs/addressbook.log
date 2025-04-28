@@ -1,0 +1,80 @@
+2025-04-28T16:57:48.351+05:30  INFO 77326 --- [AddressBook] [main] c.b.address_book.AddressBookApplication  : Starting AddressBookApplication using Java 23.0.2 with PID 77326 (/Users/mayankpal/Desktop/JAVA/Training/springboot/address-book/target/classes started by mayankpal in /Users/mayankpal/Desktop/JAVA/Training/springboot/address-book)
+2025-04-28T16:57:48.354+05:30  INFO 77326 --- [AddressBook] [main] c.b.address_book.AddressBookApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-04-28T16:57:48.950+05:30  INFO 77326 --- [AddressBook] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-28T16:57:48.965+05:30  INFO 77326 --- [AddressBook] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2025-04-28T16:57:49.434+05:30  INFO 77326 --- [AddressBook] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-04-28T16:57:49.458+05:30  INFO 77326 --- [AddressBook] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-04-28T16:57:49.459+05:30  INFO 77326 --- [AddressBook] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-04-28T16:57:49.529+05:30  INFO 77326 --- [AddressBook] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-04-28T16:57:49.530+05:30  INFO 77326 --- [AddressBook] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1111 ms
+2025-04-28T16:57:49.725+05:30  INFO 77326 --- [AddressBook] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-28T16:57:49.780+05:30  INFO 77326 --- [AddressBook] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-04-28T16:57:49.812+05:30  INFO 77326 --- [AddressBook] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-04-28T16:57:50.024+05:30  INFO 77326 --- [AddressBook] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-28T16:57:50.046+05:30  INFO 77326 --- [AddressBook] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-04-28T16:57:50.380+05:30  INFO 77326 --- [AddressBook] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2fc7fa6e
+2025-04-28T16:57:50.382+05:30  INFO 77326 --- [AddressBook] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-04-28T16:57:50.439+05:30  WARN 77326 --- [AddressBook] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-28T16:57:50.440+05:30  WARN 77326 --- [AddressBook] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-04-28T16:57:50.453+05:30  INFO 77326 --- [AddressBook] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-28T16:57:50.680+05:30  INFO 77326 --- [AddressBook] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-28T16:57:50.684+05:30  INFO 77326 --- [AddressBook] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-28T16:57:50.724+05:30  WARN 77326 --- [AddressBook] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-28T16:57:51.029+05:30  INFO 77326 --- [AddressBook] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-04-28T16:57:51.038+05:30  INFO 77326 --- [AddressBook] [main] c.b.address_book.AddressBookApplication  : Started AddressBookApplication in 3.251 seconds (process running for 3.641)
+2025-04-28T16:59:00.616+05:30  INFO 77326 --- [AddressBook] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-28T16:59:00.617+05:30  INFO 77326 --- [AddressBook] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-04-28T16:59:00.619+05:30  INFO 77326 --- [AddressBook] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-04-28T17:00:06.580+05:30  INFO 77326 --- [AddressBook] [http-nio-8080-exec-4] c.b.address_book.service.ContactService  : Retrieving all contacts. Total count: 0
+2025-04-28T17:07:00.332+05:30  INFO 77326 --- [AddressBook] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-28T17:07:00.371+05:30  INFO 77326 --- [AddressBook] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-04-28T17:07:00.380+05:30  INFO 77326 --- [AddressBook] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-28T17:07:00.388+05:30  INFO 77326 --- [AddressBook] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-04-28T17:07:00.418+05:30  INFO 77326 --- [AddressBook] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-04-28 17:07:03 INFO  c.b.a.AddressBookApplication - Starting AddressBookApplication using Java 23.0.2 with PID 77545 (/Users/mayankpal/Desktop/JAVA/Training/springboot/address-book/target/classes started by mayankpal in /Users/mayankpal/Desktop/JAVA/Training/springboot/address-book)
+2025-04-28 17:07:03 INFO  c.b.a.AddressBookApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-28 17:07:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-28 17:07:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 JPA repository interfaces.
+2025-04-28 17:07:04 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-04-28 17:07:04 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-28 17:07:04 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-04-28 17:07:04 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-28 17:07:04 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 890 ms
+2025-04-28 17:07:04 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-28 17:07:04 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-04-28 17:07:04 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-28 17:07:05 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-28 17:07:05 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-28 17:07:05 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b24ddd7
+2025-04-28 17:07:05 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-28 17:07:05 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-28 17:07:05 WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-04-28 17:07:05 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-28 17:07:05 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-28 17:07:05 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-28 17:07:05 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-28 17:07:06 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-04-28 17:07:06 INFO  c.b.a.AddressBookApplication - Started AddressBookApplication in 2.767 seconds (process running for 3.199)
+2025-04-28 17:07:39 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-28 17:07:39 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-28 17:07:39 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-04-28 17:07:49 INFO  c.b.a.service.ContactService - Retrieving all contacts. Total count: 1
+2025-04-28 17:12:54 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-28 17:12:54 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-04-28 17:12:54 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-28 17:12:54 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-28 17:12:54 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
