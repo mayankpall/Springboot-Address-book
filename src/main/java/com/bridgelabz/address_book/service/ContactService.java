@@ -1,5 +1,6 @@
 package com.bridgelabz.address_book.service;
 
+import com.bridgelabz.address_book.controller.AddressBookException;
 import com.bridgelabz.address_book.dto.ContactDTO;
 import com.bridgelabz.address_book.model.Contact;
 //import com.bridgelabz.address_book.repository.ContactRepository;
@@ -27,7 +28,7 @@ public class ContactService {
     }
 
     public Optional<ContactDTO> getContactById(Long id){
-        return contactRepository.stream().filter(c -> Objects.equals(c.getId(), id)).findFirst().map(this::convertToDTO);
+        return Optional.ofNullable(contactRepository.stream().filter(c -> Objects.equals(c.getId(), id)).findFirst().map(this::convertToDTO).orElseThrow(() -> new AddressBookException("Contact with ID " + id + " not found")));
 
     }
 
@@ -46,11 +47,13 @@ public class ContactService {
                 return Optional.of(convertToDTO(c));
             }
         }
-        return Optional.empty();
+        throw new AddressBookException("Contact with ID " + id + " not found");
+
+
     }
 
     public boolean deleteContact(Long id) {
-        return contactRepository.removeIf(c -> Objects.equals(c.getId(), id));
+        return contactRepository.removeIf(c -> Objects.equals(c.getId(), id)) ;
     }
 
 
