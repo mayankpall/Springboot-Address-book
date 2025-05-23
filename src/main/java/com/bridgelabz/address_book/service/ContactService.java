@@ -3,69 +3,85 @@ package com.bridgelabz.address_book.service;
 import com.bridgelabz.address_book.controller.AddressBookException;
 import com.bridgelabz.address_book.dto.ContactDTO;
 import com.bridgelabz.address_book.model.Contact;
-//import com.bridgelabz.address_book.repository.ContactRepository;
+import com.bridgelabz.address_book.repository.ContactRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 @Slf4j
 @Service
 public class ContactService {
 
-    private final List<Contact> contactRepository = new ArrayList<>();
-    private final AtomicLong  counter = new AtomicLong();
+    @Autowired
+    private ContactRepository contactRepository;
 
-    public List<ContactDTO> getAllContacts(){
-        log.info("Retrieving all contacts. Total count: {}", contactRepository.size());
-        return contactRepository.stream().map(this::convertToDTO).collect(Collectors.toList());
+    public List<ContactDTO> getAllContacts() {
+        log.info("Retrieving all contacts. Total count: {}", contactRepository.count());
+        return contactRepository.findAll().stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
-    public Optional<ContactDTO> getContactById(Long id){
-        return Optional.ofNullable(contactRepository.stream().filter(c -> Objects.equals(c.getId(), id)).findFirst().map(this::convertToDTO).orElseThrow(() -> new AddressBookException("Contact with ID " + id + " not found")));
-
+    public Optional<ContactDTO> getContactById(Long id) {
+        return Optional.ofNullable(contactRepository.findById(id)
+                .map(this::convertToDTO)
+                .orElseThrow(() -> new AddressBookException("Contact with ID " + id + " not found")));
     }
 
     public ContactDTO createContact(ContactDTO contactDTO) {
-        Long id = counter.incrementAndGet();
-        Contact contact = convertToEntity(contactDTO, id);
-        contactRepository.add(contact);
-        return convertToDTO(contact);
+        Contact contact = convertToEntity(contactDTO, null);
+        Contact saved = contactRepository.save(contact);
+        log.info("Created new contact with ID: {}", saved.getId());
+        return convertToDTO(saved);
     }
 
     public Optional<ContactDTO> updateContact(Long id, ContactDTO updatedDTO) {
-        for (Contact c : contactRepository) {
-            if (Objects.equals(c.getId(), id)) {
-                c.setName(updatedDTO.getName());
-                c.setEmail(updatedDTO.getEmail());
-                return Optional.of(convertToDTO(c));
-            }
-        }
-        throw new AddressBookException("Contact with ID " + id + " not found");
-
-
+        return Optional.ofNullable(contactRepository.findById(id).map(existing -> {
+            Contact updated = convertToEntity(updatedDTO, id);
+            Contact saved = contactRepository.save(updated);
+            log.info("Updated contact with ID: {}", id);
+            return convertToDTO(saved);
+        }).orElseThrow(() -> new AddressBookException("Contact with ID " + id + " not found")));
     }
 
     public boolean deleteContact(Long id) {
-        return contactRepository.removeIf(c -> Objects.equals(c.getId(), id)) ;
+        if (contactRepository.existsById(id)) {
+            contactRepository.deleteById(id);
+            log.info("Deleted contact with ID: {}", id);
+            return true;
+        }
+        log.warn("Contact with ID {} not found for deletion", id);
+        return false;
     }
 
-
-
-    private ContactDTO convertToDTO(Contact contact){
-     return new ContactDTO(contact.getName(), contact.getEmail());
+    private ContactDTO convertToDTO(Contact contact) {
+        return new ContactDTO(
+                contact.getId(),
+                contact.getName(),
+                contact.getPhoneNumber(),
+                contact.getAddress(),
+                contact.getCity(),
+                contact.getState(),
+                contact.getZipCode(),
+                contact.getEmail()
+        );
     }
-
     private Contact convertToEntity(ContactDTO dto, Long id) {
-        return new Contact(id, dto.getName(), dto.getEmail(), null);
+        Contact contact = new Contact();
+        if (id != null) {
+            contact.setId(id);
+        }
+        contact.setName(dto.getName());
+        contact.setPhoneNumber(dto.getPhoneNumber());
+        contact.setAddress(dto.getAddress());
+        contact.setCity(dto.getCity());
+        contact.setState(dto.getState());
+        contact.setZipCode(dto.getZipCode());
+        contact.setEmail(dto.getEmail());
+        return contact;
     }
-
-
-
 }
